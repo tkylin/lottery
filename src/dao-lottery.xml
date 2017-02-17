@@ -1,0 +1,25 @@
+<!DOCTYPE daoConfig
+
+        PUBLIC "-//ibatis.apache.org//DTD DAO Configuration 2.0//EN"
+
+        "http://ibatis.apache.org/dtd/dao-2.dtd">
+
+<daoConfig>
+    <context>
+        <transactionManager type="SQLMAP">
+            <property name="SqlMapConfigResource" value="sqlmap-lottery.xml"/>
+        </transactionManager>
+        <dao interface="com.tkylin.lottery.dataaccess.dao.LotteryLogDAO"
+             implementation="com.tkylin.lottery.dataaccess.dao.LotteryLogDAOImpl"/>
+        <dao interface="com.tkylin.lottery.dataaccess.dao.PrizeDAO"
+             implementation="com.tkylin.lottery.dataaccess.dao.PrizeDAOImpl"/>
+        <dao interface="com.tkylin.lottery.dataaccess.dao.UserDAO"
+             implementation="com.tkylin.lottery.dataaccess.dao.UserDAOImpl"/>
+        <dao interface="com.tkylin.lottery.dataaccess.dao.ConfigDAO"
+             implementation="com.tkylin.lottery.dataaccess.dao.ConfigDAOImpl"/>
+
+
+        <dao interface="com.tkylin.lottery.dataaccess.dao.custom.LotteryCustomDAO"
+             implementation="com.tkylin.lottery.dataaccess.dao.custom.LotteryCustomDAOImpl"/>
+    </context>
+</daoConfig>

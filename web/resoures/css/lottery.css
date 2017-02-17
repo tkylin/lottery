@@ -1,0 +1,121 @@
+/**
+ * è½¬ç›˜
+ * Created by ZhaoHuanLei on 2015/11/7.
+ */
+body {background-color:#f4f4f4;}
+.container {max-width:640px;margin:0 auto;}
+.lottery {padding:10px 15px;}
+.logo {margin:20px 0;}
+.slogan {text-align:center;-webkit-user-select:none;user-select:none}
+.plate {width:100%;position:relative;margin:10px auto;overflow:hidden;border-radius:100%;-webkit-user-select:none;user-select:none;}
+.plate img {width:100%;display:block;}
+.pointer {width:45%;height:45%;position:absolute;top:27.5%;left:27.5%;z-index:1;}
+/*.btn-rotate {width:80%;height:80%;position:absolute;top:10%;left:10%;border-radius:100%;cursor:pointer;background-color:rgba(0,0,0,0);}*/
+.btn-rotate {width: 38%;
+    height: 38%;
+    position: absolute;
+    top: 43%;
+    left: 31%;
+    border-radius: 100%;
+    cursor: pointer;
+    background-color: rgba(0,0,0,0);
+    font-size: 24px;
+    padding: 4% 0;
+    text-align: center;
+    color: #ffbe04;}
+.explain {margin-bottom:20px;color:#fff;}
+.explain h2 {width:80px;height:30px;margin-bottom:10px;line-height:30px;text-align:center;color:#fff;background:url(../images/explain-title.png) no-repeat;background-size:contain;}
+.explain p {line-height:1.5;}
+.explain p b {color:#ffde81;}
+
+.input-div{text-align: center;margin:20px 0;}
+.input-div input.text{
+    width: 50%;
+    height: 42px;
+    line-height: 42px;
+    font-size:25px;
+    border: 4px solid #ffbe04;
+    border-radius: 6px;
+    text-align: center;
+    color:#ffaa1d;
+}
+
+.input-div input.button{
+    width: 20%;
+    height: 50px;
+    line-height: 42px;
+    font-size:25px;
+    border: 4px solid #ffbe04;
+    background-color: #ffbe04;
+    border-radius: 6px;
+    text-align: center;
+    color: #fff;
+}
+
+.expiry{width: 50%;height:40px;font-size:25px;border: 4px solid #ffbe04;background-color: #ffbe04;border-radius: 6px;text-align: center;color: #fff;}
+
+
+/*æ”¶è´§åœ°å€*/
+.receive {font-size:14px;}
+.receive .matter {padding:15px;line-height:1.4;color:#333;}
+.data-list {border-top:1px solid #ddd;;}
+.data-list .item {height:45px;padding:5px 15px;background-color:#fff;border-bottom:1px solid #ddd;box-sizing:border-box;}
+.data-list .name {width:70px;float:left;line-height:32px;font-size:14px;}
+.data-list .control {margin-left:70px;}
+.data-list .input-text {width:100%;height:16px;padding:9px 0;line-height:16px;border:none;background:none;color:#333;font-size:14px}
+.receive .btn-box {margin-top:30px;padding:15px;}
+.btn-submit {width:100%;height:44px;display:block;text-align:center;overflow:visible;line-height:42px;border:none;background-color:#f2473d;font-size:16px;color:#fff;border-radius:5px;}
+
+
+
+/*å¼¹çª—*/
+.popup, .popup-overlay {-webkit-transition:opacity .5s;transition:opacity .5s;}
+.popup {width:300px;height:150px;position:fixed;top:50%;left:50%;z-index:11;margin:-80px 0 0 -150px;background:url(../images/popup-bg.png) no-repeat;background-size:contain;}
+.popup-overlay {width:100%;height:100%;position:fixed;top:0;left:0;z-index:10;background-color:rgba(0,0,0,.7);}
+.popup .matter {max-height:45px;padding:30px 30px 0;margin-bottom:10px;overflow:hidden;line-height:1.5;font-size:15px;color:#fff;text-align:center;}
+.popup .matter b {color:#ffdc38;}
+.popup-prize {height:326px;margin-top:-170px;background-image:url(../images/popup-prize.png);}
+.popup-prize .info {width:250px;margin:70px auto 0;text-align:center;}
+.popup-prize .photo {width:80px;height:80px;margin:0 auto;}
+.popup-prize .name {margin:5px 0 10px;padding-bottom:8px;color:#fff;font-size:20px;text-shadow:2px 0 2px #a82b2b, 0 2px 2px  #a82b2b, -2px 0 2px  #a82b2b, 0 -2px 2px  #a82b2b;}
+.popup-prize .matter {margin:0 20px 15px;padding:10px;border:2px solid #ca3130;border-radius:8px;line-height:1.4;font-size:12px;color:#661010;text-align:left;}
+.popup .btn-box {padding:0 20px;overflow:hidden;}
+
+.popup .btn {display:block;overflow:hidden;text-indent:100%;white-space:nowrap;background-repeat:no-repeat;background-size:contain;cursor:pointer;}
+.btn-determine {width:99px;height:44px;margin:0 auto;background-image:url(../images/btn-determine.png);}
+.btn-receive {width:120px;height:38px;float:left;border:2px solid #c53131;border-radius:22px;line-height:38px;text-align:center;text-indent:0;color:#c53131;background-color:#fff;font-size:16px;}
+.popup .btn-close {width:28px;height:28px;position:absolute;top:-35px;right:0;z-index:1;background-image:url(../images/btn-close.png);}
+.popup-notprize {height:103px;background-image:url(../images/popup-notprize.png);}
+.popup-notprize .matter {padding:30px 20px 0 105px;text-align:left;}
+.popup-prized {height:150px;margin-top:-80px;}
+.btn-view {width:120px;height:44px;float:left;background-image:url(../images/btn-view.png);}
+.btn-shut {width:99px;height:44px;float:right;background-image:url(../images/btn-shut.png);}
+.popup-gold-confirm .num {color:#ffdc38;}
+.btn-confirm-no,
+.btn-confirm-yes,
+.btn-short {width:114px;height:44px;}
+.btn-confirm-no {float:left;background-image:url(../images/btn-confirm-no.png);}
+.btn-confirm-yes {float:right;background-image:url(../images/btn-confirm-yes.png);}
+.btn-short {margin:0 auto;background-image:url(../images/btn-short.png);}
+.btn-effort {width:119px;height:44px;margin:0 auto;background-image:url(../images/btn-effort.png);}
+
+.user-info {width:220px;min-height:35px;position:relative;margin:10px auto;padding:25px 15px 10px;color:#eee;line-height:1.5;border:2px solid #ca3130;border-radius:5px;}
+.user-info:before {width:100px;height:24px;position:absolute;top:-4px;left:50%;margin-left:-55px;content:"";background:url(../images/user-title.png) no-repeat;background-size:contain;}
+.user-info p {display:inline-block;}
+.user-info p:nth-child(3){display:-webkit-box;}
+.user-info p:first-child {margin-right:15px;}
+.user-info p a {color:#fff;}
+.user-info .address-tips {width:100%;padding:5px 0;text-align:center;font-size:14px;}
+
+.popup-download {height:150px;background-image:url(../images/popup-download.png);}
+.btn-download {height:100%;}
+.btn-share {width:119px;height:44px;margin:0 auto;background-image:url(../images/btn-share.png);}
+
+
+/*é¢†å¥–é¡µé¢*/
+.award-goods .popup-prize {height:388px;margin-top:-180px;background-image:url(../images/popup-award.png);}
+.award .popup-prize:before {width:90%;height:80px;position:absolute;top:-80px;left:5%;display:block;content:"";background:url(../images/award-star.png) no-repeat 50% 0;background-size:contain;}
+.award .matter {margin-top:10px;}
+.user-tips {margin:0 20px;color:#ddd;line-height:1.4;font-size:10px;text-align:center;}
+.award-goods .btn-box {margin-top:20px;}
+.btn-address {width:164px;height:44px;margin:0 auto;background-image:url(../images/btn-address.png);}

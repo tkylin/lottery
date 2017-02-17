@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="upload_to_server" name="turntable" basedir=".">
+	<property name="LibDir" location="web/WEB-INF/lib" />
+	<property name="SrcDir" location="src" />
+	<property name="ClassesDir" location="out/production/turntable" />
+	<property name="BuildDir" location="build" />
+	<property name="BuildFile" location="${BuildDir}/turntable-1.0.jar" />
+	<property name="Main-Class" value="" />
+
+	<path id="classpath">
+		<fileset dir="${LibDir}">
+			<include name="**/*.jar" />
+			<include name="**/*.zip" />
+		</fileset>
+	</path>
+
+	<target name="init">
+		<mkdir dir="${BuildDir}" />
+		<delete file="${BuildFile}" />
+	</target>
+
+	<target name="compile" depends="init">
+		<echo message="---compile---" />
+		<javac srcdir="${SrcDir}" destdir="${ClassesDir}" classpathref="classpath" includeantruntime="on" />
+	</target>
+
+	<target name="create_run_jar" depends="compile">
+		<jar destfile="${BuildFile}" filesetmanifest="mergewithoutmain">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="${Main-Class}" />
+				<attribute name="Class-Path" value="" />
+			</manifest>
+			<fileset dir="${ClassesDir}">
+				<exclude name="*.properties" />
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="upload_to_server" depends="create_run_jar">
+		<copy file="${BuildFile}" todir="C:\\Users\\tkyli\\Desktop\\BuildJar" />
+	</target>
+
+</project>

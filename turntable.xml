@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE ibatorConfiguration
+  PUBLIC "-//Apache Software Foundation//DTD Apache iBATIS Ibator Configuration 1.0//EN"
+  "http://ibatis.apache.org/dtd/ibator-config_1_0.dtd">
+
+<ibatorConfiguration>
+	<classPathEntry
+		location="./web/WEB-INF/lib/mysql-connector-java-5.1.20-bin.jar" />
+
+	<ibatorContext id="lottery" targetRuntime="Ibatis2Java2">
+
+		<ibatorPlugin type="org.apache.ibatis.ibator.plugins.LimitClausePlugin"></ibatorPlugin>
+
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://localhost:3306/lottery" userId="root"
+			password="123456">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator targetPackage="com.tkylin.lottery.dataaccess.entity"
+			targetProject="./src/">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.tkylin.lottery.dataaccess.sqlmap"
+		targetProject="./src/">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<daoGenerator type="IBATIS" targetPackage="com.tkylin.lottery.dataaccess.dao"
+			targetProject="./src/">
+			<property name="enableSubPackages" value="true" />
+		</daoGenerator>
+		
+		<table schema="tkylin" tableName="lottery_log" domainObjectName="LotteryLog">
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		<!--<table schema="tkylin" tableName="config" domainObjectName="Config">
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+
+		<table schema="tkylin" tableName="prize" domainObjectName="Prize">
+			<generatedKey column="id" sqlStatement="mysql" identity="true"/>
+		</table>
+		<table schema="tkylin" tableName="user" domainObjectName="User">
+		</table>-->
+
+	</ibatorContext>
+</ibatorConfiguration>

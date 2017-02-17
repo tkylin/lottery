@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="config">
+  <resultMap class="com.tkylin.lottery.dataaccess.entity.Config" id="ibatorgenerated_BaseResultMap">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="card_to_change" jdbcType="INTEGER" property="cardToChange" />
+    <result column="range" jdbcType="INTEGER" property="range" />
+    <result column="lottery_server" jdbcType="VARCHAR" property="lotteryServer" />
+    <result column="default_change" jdbcType="INTEGER" property="defaultChange" />
+    <result column="def_item1" jdbcType="VARCHAR" property="defItem1" />
+    <result column="def_item2" jdbcType="VARCHAR" property="defItem2" />
+    <result column="def_item3" jdbcType="VARCHAR" property="defItem3" />
+    <result column="def_item4" jdbcType="INTEGER" property="defItem4" />
+    <result column="def_item5" jdbcType="INTEGER" property="defItem5" />
+    <result column="def_item6" jdbcType="INTEGER" property="defItem6" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause">
+    <iterate conjunction="or" prepend="where" property="oredCriteria" removeFirstPrepend="iterate">
+      <isEqual compareValue="true" property="oredCriteria[].valid">
+        (
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithoutValue">
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithSingleValue">
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithListValue">
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate close=")" conjunction="," open="(" property="oredCriteria[].criteriaWithListValue[].values">
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithBetweenValue">
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.ConfigExample" resultMap="ibatorgenerated_BaseResultMap">
+    select id, card_to_change, range, lottery_server, default_change, def_item1, def_item2,
+      def_item3, def_item4, def_item5, def_item6
+    from config
+    <isParameterPresent>
+      <include refid="config.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+      <isNotNull property="limitClause">
+        limit $limitClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Config" resultMap="ibatorgenerated_BaseResultMap">
+    select id, card_to_change, range, lottery_server, default_change, def_item1, def_item2,
+      def_item3, def_item4, def_item5, def_item6
+    from config
+    where id = #id:INTEGER#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Config">
+    delete from config
+    where id = #id:INTEGER#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.ConfigExample">
+    delete from config
+    <include refid="config.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.tkylin.lottery.dataaccess.entity.Config">
+    insert into config (card_to_change, range, lottery_server, default_change, def_item1, def_item2,
+      def_item3, def_item4, def_item5, def_item6)
+    values (#cardToChange:INTEGER#, #range:INTEGER#, #lotteryServer:VARCHAR#,
+      #defaultChange:INTEGER#, #defItem1:VARCHAR#, #defItem2:VARCHAR#, #defItem3:VARCHAR#,
+      #defItem4:INTEGER#, #defItem5:INTEGER#, #defItem6:INTEGER#)
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="ibatorgenerated_countByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.ConfigExample" resultClass="java.lang.Integer">
+    select count(*) from config
+    <include refid="config.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective">
+    update config
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="record.id">
+        id = #record.id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardToChange">
+        card_to_change = #record.cardToChange:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.range">
+        range = #record.range:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lotteryServer">
+        lottery_server = #record.lotteryServer:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defaultChange">
+        default_change = #record.defaultChange:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem1">
+        def_item1 = #record.defItem1:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem2">
+        def_item2 = #record.defItem2:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem3">
+        def_item3 = #record.defItem3:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem4">
+        def_item4 = #record.defItem4:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem5">
+        def_item5 = #record.defItem5:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.defItem6">
+        def_item6 = #record.defItem6:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent>
+      <include refid="config.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample">
+    update config
+    set id = #record.id:INTEGER#,
+      card_to_change = #record.cardToChange:INTEGER#,
+      range = #record.range:INTEGER#,
+      lottery_server = #record.lotteryServer:VARCHAR#,
+      default_change = #record.defaultChange:INTEGER#,
+      def_item1 = #record.defItem1:VARCHAR#,
+      def_item2 = #record.defItem2:VARCHAR#,
+      def_item3 = #record.defItem3:VARCHAR#,
+      def_item4 = #record.defItem4:INTEGER#,
+      def_item5 = #record.defItem5:INTEGER#,
+      def_item6 = #record.defItem6:INTEGER#
+    <isParameterPresent>
+      <include refid="config.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.tkylin.lottery.dataaccess.entity.Config">
+    update config
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="cardToChange">
+        card_to_change = #cardToChange:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="range">
+        range = #range:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="lotteryServer">
+        lottery_server = #lotteryServer:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="defaultChange">
+        default_change = #defaultChange:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem1">
+        def_item1 = #defItem1:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem2">
+        def_item2 = #defItem2:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem3">
+        def_item3 = #defItem3:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem4">
+        def_item4 = #defItem4:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem5">
+        def_item5 = #defItem5:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="defItem6">
+        def_item6 = #defItem6:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where id = #id:INTEGER#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Config">
+    update config
+    set card_to_change = #cardToChange:INTEGER#,
+      range = #range:INTEGER#,
+      lottery_server = #lotteryServer:VARCHAR#,
+      default_change = #defaultChange:INTEGER#,
+      def_item1 = #defItem1:VARCHAR#,
+      def_item2 = #defItem2:VARCHAR#,
+      def_item3 = #defItem3:VARCHAR#,
+      def_item4 = #defItem4:INTEGER#,
+      def_item5 = #defItem5:INTEGER#,
+      def_item6 = #defItem6:INTEGER#
+    where id = #id:INTEGER#
+  </update>
+</sqlMap>

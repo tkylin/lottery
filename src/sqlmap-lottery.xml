@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" 
+        "http://www.ibatis.com/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+	<properties resource="database.properties" />
+
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="512"
+		maxSessions="128" maxTransactions="128" useStatementNamespaces="true" />
+
+	<transactionManager type="JDBC">
+		<dataSource type="DBCP">
+			<property name="JDBC.Driver" value="${driver}" />
+			<property name="JDBC.ConnectionURL" value="${url}" />
+			<property name="JDBC.Username" value="${username}" />
+			<property name="JDBC.Password" value="${password}" />
+
+			<property name="Pool.MaximumActiveConnections" value="${maximumActiveConnections}" />
+			<property name="Pool.MaximumIdleConnections" value="${maximumIdleConnections}" />
+			<property name="Pool.MaximumWait" value="${maximumWait}" />
+
+			<property name="Pool.ValidationQuery" value="select 0" />
+			<property name="Pool.LogAbandoned" value="true" />
+			<property name="Pool.RemoveAbandoned" value="true" />
+			<property name="Pool.RemoveAbandonedTimeout" value="180" />
+
+			<property name="testWhileIdle" value="true" />
+			<property name="testOnBorrow" value="false" />
+			<property name="testOnReturn" value="false" />
+			<property name="validationQuery" value="select 1" />
+			<property name="validationQueryTimeout" value="1" />
+			<property name="timeBetweenEvictionRunsMillis" value="60000" />
+			<property name="numTestsPerEvictionRun" value="${maximumActiveConnections}" />
+
+		</dataSource>
+	</transactionManager>
+	<sqlMap resource="com/tkylin/lottery/dataaccess/sqlmap/lottery_log_SqlMap.xml" />
+	<sqlMap resource="com/tkylin/lottery/dataaccess/sqlmap/prize_SqlMap.xml" />
+	<sqlMap resource="com/tkylin/lottery/dataaccess/sqlmap/user_SqlMap.xml" />
+	<sqlMap resource="com/tkylin/lottery/dataaccess/sqlmap/config_SqlMap.xml" />
+
+	<sqlMap resource="com/tkylin/lottery/dataaccess/sqlmap/custom/lottery_custom_SqlMap.xml" />
+</sqlMapConfig>

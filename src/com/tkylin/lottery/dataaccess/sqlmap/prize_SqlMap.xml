@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+<sqlMap namespace="prize">
+  <resultMap class="com.tkylin.lottery.dataaccess.entity.Prize" id="ibatorgenerated_BaseResultMap">
+    <result column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="probability" jdbcType="INTEGER" property="probability" />
+    <result column="number" jdbcType="INTEGER" property="number" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="index_no" jdbcType="INTEGER" property="indexNo" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="reward_num" jdbcType="INTEGER" property="rewardNum" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause">
+    <iterate conjunction="or" prepend="where" property="oredCriteria" removeFirstPrepend="iterate">
+      <isEqual compareValue="true" property="oredCriteria[].valid">
+        (
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithoutValue">
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithSingleValue">
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithListValue">
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate close=")" conjunction="," open="(" property="oredCriteria[].criteriaWithListValue[].values">
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate conjunction="and" prepend="and" property="oredCriteria[].criteriaWithBetweenValue">
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.PrizeExample" resultMap="ibatorgenerated_BaseResultMap">
+    select id, name, probability, number, icon, sort, create_time, status, index_no, type,
+      reward_num
+    from prize
+    <isParameterPresent>
+      <include refid="prize.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause">
+        order by $orderByClause$
+      </isNotNull>
+      <isNotNull property="limitClause">
+        limit $limitClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Prize" resultMap="ibatorgenerated_BaseResultMap">
+    select id, name, probability, number, icon, sort, create_time, status, index_no, type,
+      reward_num
+    from prize
+    where id = #id:INTEGER#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Prize">
+    delete from prize
+    where id = #id:INTEGER#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.PrizeExample">
+    delete from prize
+    <include refid="prize.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.tkylin.lottery.dataaccess.entity.Prize">
+    insert into prize (name, probability, number, icon, sort, create_time, status, index_no, type,
+      reward_num)
+    values (#name:VARCHAR#, #probability:INTEGER#, #number:INTEGER#, #icon:VARCHAR#, #sort:INTEGER#,
+      #createTime:TIMESTAMP#, #status:INTEGER#, #indexNo:INTEGER#, #type:INTEGER#,
+      #rewardNum:INTEGER#)
+    <selectKey keyProperty="id" resultClass="java.lang.Integer">
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+  </insert>
+  <select id="ibatorgenerated_countByExample" parameterClass="com.tkylin.lottery.dataaccess.entity.PrizeExample" resultClass="java.lang.Integer">
+    select count(*) from prize
+    <include refid="prize.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective">
+    update prize
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="record.id">
+        id = #record.id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.name">
+        name = #record.name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.probability">
+        probability = #record.probability:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.number">
+        number = #record.number:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.icon">
+        icon = #record.icon:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sort">
+        sort = #record.sort:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createTime">
+        create_time = #record.createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status">
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.indexNo">
+        index_no = #record.indexNo:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.type">
+        type = #record.type:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.rewardNum">
+        reward_num = #record.rewardNum:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent>
+      <include refid="prize.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample">
+    update prize
+    set id = #record.id:INTEGER#,
+      name = #record.name:VARCHAR#,
+      probability = #record.probability:INTEGER#,
+      number = #record.number:INTEGER#,
+      icon = #record.icon:VARCHAR#,
+      sort = #record.sort:INTEGER#,
+      create_time = #record.createTime:TIMESTAMP#,
+      status = #record.status:INTEGER#,
+      index_no = #record.indexNo:INTEGER#,
+      type = #record.type:INTEGER#,
+      reward_num = #record.rewardNum:INTEGER#
+    <isParameterPresent>
+      <include refid="prize.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.tkylin.lottery.dataaccess.entity.Prize">
+    update prize
+    <dynamic prepend="set">
+      <isNotNull prepend="," property="name">
+        name = #name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="probability">
+        probability = #probability:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="number">
+        number = #number:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="icon">
+        icon = #icon:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sort">
+        sort = #sort:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime">
+        create_time = #createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="status">
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="indexNo">
+        index_no = #indexNo:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="type">
+        type = #type:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="rewardNum">
+        reward_num = #rewardNum:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where id = #id:INTEGER#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.tkylin.lottery.dataaccess.entity.Prize">
+    update prize
+    set name = #name:VARCHAR#,
+      probability = #probability:INTEGER#,
+      number = #number:INTEGER#,
+      icon = #icon:VARCHAR#,
+      sort = #sort:INTEGER#,
+      create_time = #createTime:TIMESTAMP#,
+      status = #status:INTEGER#,
+      index_no = #indexNo:INTEGER#,
+      type = #type:INTEGER#,
+      reward_num = #rewardNum:INTEGER#
+    where id = #id:INTEGER#
+  </update>
+</sqlMap>
